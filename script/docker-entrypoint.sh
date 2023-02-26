@@ -6,7 +6,7 @@ USER=root       # the user to run as
 # shellcheck disable=SC2034
 GROUP=root # the group to run as
 # shellcheck disable=SC2034
-DJANGO-WSGI-MODULE=app.asgi
+DJANGO_WSGI_MODULE=app.asgi
 
 echo "Starting $NAME as $(whoami)"
 
@@ -15,7 +15,7 @@ echo "Starting $NAME as $(whoami)"
 cd $DJANGO_DIR
 
 python manage.py makemigrations &&
-  python manage.py migrate && \
+  python manage.py migrate
 
 # Start your Django Hypercorn
 exec hypercorn app.asgi:application \
